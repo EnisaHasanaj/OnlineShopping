@@ -11,7 +11,7 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 export default {
-  name: "top-header",
+  name: "header",
   mounted() {
     this.setupFirebase();
   },

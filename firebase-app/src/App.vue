@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <header></header> -->
-    <top-header></top-header>
+    <!-- <top-header></top-header> -->
     <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>|
@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import Header from "./components/Top-Header";
+// import Header from "/components/Top-Header";
 export default {
-  components: {
-    "top-header": Header
-  },
+  // components: {
+  //   "top-header": Header
+  // },
   data() {
     return {
       blah: "erik"
@@ -27,25 +27,12 @@ export default {
 };
 </script>  
 
-<style lang="scss">
+<style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

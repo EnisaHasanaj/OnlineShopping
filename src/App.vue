@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <app-header></app-header>
-    <button @click="selectedComponent = 'app-about'">About</button>
-    <button @click="selectedComponent = 'app-contact'">Contact</button>
-    <component :is="selectedComponent"></component>
-    <app-home v-bind:web="web"></app-home>
-    <app-articles></app-articles>
-    <app-footer></app-footer>
+    <!-- <header></header> -->
+    <top-header></top-header>
+    <div id="nav">
+      <router-link to="/">Home</router-link>|
+      <router-link to="/about">About</router-link>|
+      <router-link to="/register">Register</router-link>|
+      <router-link to="/login">Login</router-link>|
+      <router-link to="/secret">Secret</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
 

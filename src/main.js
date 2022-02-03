@@ -8,15 +8,22 @@ import axios from "axios";
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-analytics.js";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCrqp1Puc-zKKudhnjmEhRbwY4HTxxwdNQ",
-  authDomain: "proj-5fd86.firebaseapp.com",
-  databaseURL: "https://proj-5fd86.firebaseio.com",
-  projectId: "proj-5fd86",
-  storageBucket: "proj-5fd86.appspot.com",
-  messagingSenderId: "1042879394402",
-  appId: "1:1042879394402:web:bd8d4e2786a64f5088173b"
+  apiKey: "AIzaSyBT2XjFCu7-RkYJeB4pzsVNRQcr0K1LiYU",
+  authDomain: "vue-js-app-a2efd.firebaseapp.com",
+  projectId: "vue-js-app-a2efd",
+  storageBucket: "vue-js-app-a2efd.appspot.com",
+  messagingSenderId: "785569086234",
+  appId: "1:785569086234:web:0214e996c758d8dd93caa3",
+  measurementId: "G-91FBHZMR24"
 };
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
 firebase.initializeApp(firebaseConfig);
 

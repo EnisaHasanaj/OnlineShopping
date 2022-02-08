@@ -29,12 +29,6 @@ jest.mock("firebase/app", () => ({
   }
 }));
 
-// jest.mock("firebase/app", () => ({
-//   auth() {
-//     return jest.fn();
-//   }
-// }));
-
 fdescribe("Register.vue", () => {
   let wrapper;
   beforeEach(() => {
@@ -56,27 +50,7 @@ fdescribe("Register.vue", () => {
   });
 
   it("sends to secret route if promise resolves", async () => {
-    // wrapper.setData({email})
-
-    // firebase.auth().mockImplementation(() => {
-    //   return {
-    //     signOut: () => {
-    //       return Promise.resolve();
-    //     },
-    //     onAuthStateChanged(fnc) {
-    //       return fnc(true);
-    //       // return Promise.resolve(true);
-    //     },
-    //     createUserWithEmailAndPassword: () => {
-    //       return Promise.resolve();
-    //     },
-    //     currentUser: {
-    //       getIdToken: () => "blah"
-    //     }
-    //   };
-    // });
     wrapper.find("form").trigger("submit");
-    // wrapper.vm.pressed();
     await flushPromises();
     expect($router.replace).lastCalledWith({ name: "secret" });
   });
@@ -118,7 +92,6 @@ describe("TopHeader.vue", () => {
 
   beforeEach(() => {
     wrapper = shallowMount(TopHeader, {
-      // methods: { setupFirebase: () => {} },
       mocks: {
         $router
       }
@@ -132,8 +105,6 @@ describe("TopHeader.vue", () => {
   });
 
   it("sets the correct user to logged in", async () => {
-    // await wrapper.vm.$nextTick();
-
     expect(wrapper.vm.$data.loggedIn).toBe(true);
   });
 });

@@ -21,10 +21,6 @@ const firebaseConfig = {
   measurementId: "G-91FBHZMR24"
 };
 
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-
 firebase.initializeApp(firebaseConfig);
 
 let app;
@@ -40,8 +36,3 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
-// app = new Vue({
-//   router,
-//   store,
-//   render: h => h(App)
-// }).$mount("#app");

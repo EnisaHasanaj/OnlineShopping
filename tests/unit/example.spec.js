@@ -17,9 +17,11 @@ jest.mock("firebase/app", () => ({
       },
       onAuthStateChanged(fnc) {
         return fnc(true);
-        // return Promise.resolve(true);
-      },
+       },
       createUserWithEmailAndPassword: () => {
+        return Promise.resolve();
+      },
+      createAuthToken: () => {
         return Promise.resolve();
       },
       currentUser: {

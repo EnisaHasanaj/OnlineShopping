@@ -95,4 +95,10 @@ li {
 a {
   color: #42b983;
 }
+h4 {
+  padding: 0;
+}
+h1 {
+  padding: 0;
+}
 </style>

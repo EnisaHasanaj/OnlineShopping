@@ -7,9 +7,11 @@ const getAuthToken = (req, res, next) => {
     if (
         req.headers.authorization &&
         req.headers.authorization.split(' ')[0] === 'Bearer'
-    ) {
+    ) 
+    {
         req.authToken = req.headers.authorization.split(' ')[1];
-    } else {
+    } 
+    else {
         req.authToken = null;
     }
     next();
@@ -24,10 +26,11 @@ const checkIfAuthenticated = (req, res, next) => {
                 .verifyIdToken(authToken);
             req.authId = userInfo.uid;
             return next();
-        } catch (e) {
+        } 
+            catch (e) {
             return res
                 .status(401)
-                .send({ error: 'You are not authorized to make this request' });
+                .send({ error: 'You are not authorized to make this request!' });
         }
     });
 };
@@ -41,10 +44,11 @@ admin.initializeApp({
 const Products = require('../models/Products');
 
 router.get('/', checkIfAuthenticated,async (req, res) => {
-    try {
-        const products = await Products.find();
+    try { 
+        const products = await Products.find(); 
         res.json(products);
-    } catch (err) {
+    } 
+    catch (err) {
         res.json({ message : err })
     }
 });
@@ -55,7 +59,8 @@ router.get('/:productId', async (req, res) => {
     try {
          const product = await Products.findById(req.params.productId);
          res.json(product);
-    } catch (err) {
+    } 
+    catch (err) {
         res.json({ message: err })
     }
 })
@@ -71,7 +76,8 @@ router.post('/', async (req, res) => {
     try {
         const savedProduct = await product.save();
         res.json(savedProduct);
-    } catch (err) {
+    } 
+    catch (err) {
         res.json(err);
     }
 })
@@ -80,7 +86,8 @@ router.delete('/:productId', async(req, res) => {
     try {
         const removedProduct = await Products.remove({ _id: req.params.productId });
         res.json(removedProduct);
-    } catch (err) {
+    } 
+    catch (err) {
         res.json({message: err})
     }
 })
@@ -89,7 +96,8 @@ router.patch('/:productId', async(req, res) => {
     try {
         const updatedProduct = await Products.updateOne({ _id: req.params.productId}, { $set : {title: req.body.title, description: req.body.description, price: req.body.description} });
         res.json(updatedProduct);
-    } catch (err) {
+    } 
+    catch (err) {
         res.json({ message: err} )
     }
 })

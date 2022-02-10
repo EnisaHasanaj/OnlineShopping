@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import Secret from "../views/Secret.vue";
+import Email from "../views/Email.vue";
 
 import * as firebase from "firebase/app";
 import "firebase/auth";
@@ -27,6 +28,7 @@ const routes = [
     name: "login",
     component: Login
   },
+  
   {
     path: "/register",
     name: "register",
@@ -41,8 +43,7 @@ const routes = [
     path: "/about",
     name: "about",
    
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
   }
 ];
 
@@ -53,12 +54,11 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  const isAuthenticated = firebase.auth().currentUser;
   console.log("isauthenticated", isAuthenticated);
   if (requiresAuth && !isAuthenticated) {
     next("/login");
-  } else {
+  } 
+  else {
     next();
   }
 });

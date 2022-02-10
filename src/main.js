@@ -32,7 +32,8 @@ firebase.auth().onAuthStateChanged(user => {
       router,
       store,
       render: h => h(App)
-    }).$mount("#app");
+    })
+    .$mount("#app");
   }
 });
 

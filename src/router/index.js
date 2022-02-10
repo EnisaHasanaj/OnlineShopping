@@ -41,8 +41,7 @@ const routes = [
     path: "/about",
     name: "about",
    
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
   }
 ];
 
@@ -58,7 +57,8 @@ router.beforeEach((to, from, next) => {
   console.log("isauthenticated", isAuthenticated);
   if (requiresAuth && !isAuthenticated) {
     next("/login");
-  } else {
+  } 
+  else {
     next();
   }
 });

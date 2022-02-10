@@ -8,9 +8,6 @@ import axios from "axios";
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-analytics.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyBT2XjFCu7-RkYJeB4pzsVNRQcr0K1LiYU",
   authDomain: "vue-js-app-a2efd.firebaseapp.com",
@@ -31,6 +28,8 @@ firebase.auth().onAuthStateChanged(user => {
     app = new Vue({
       router,
       store,
+      menu,
+      login,
       render: h => h(App)
     })
     .$mount("#app");

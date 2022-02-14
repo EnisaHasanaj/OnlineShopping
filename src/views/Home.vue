@@ -1,9 +1,8 @@
 <template>
   <div class="home"></div>
 </template>
-
 <script>
-// @ is an alias to /src
+
 
 export default {
   name: "home",
@@ -13,5 +12,10 @@ export default {
 <style lang="scss">
 div {
   color: inherit;
+}
+template {
+  border: rebeccapurple;
+  border-left: red;
+  margin: 8px;
 }
 </style>

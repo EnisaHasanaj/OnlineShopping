@@ -24,6 +24,8 @@ var upload = multer({ storage: storage });
 var path = require('path'),
     __imagesPath = "logos";
 
+var routes = require('routes'),
+__routespath = "routes";
 
 router.get('/',function(req,res,next){
     Restaurant.find(function(err,restaurant){

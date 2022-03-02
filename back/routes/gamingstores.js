@@ -17,3 +17,31 @@ var storage = multer.diskStorage({
         cb(null, Date.now() + ext)
     }
 });
+
+var upload = multer({ storage: storage });
+
+
+var path = require('path'),
+    __imagesPath = "logos";
+
+
+router.get('/',function(req,res,next){
+    GamingStores.find(function(err,gamingstore){
+        if(err)return next(err);
+        res.json(gamingstore);
+    })
+})
+
+router.get('/:id',function(req,res,next){
+    GamingStores.findById(req.params.id,function(err,post){
+        if(err)return next(err);
+        res.json(post);
+    })
+})
+
+router.get('/search/:searchTerm',function(req,res,next){
+    GamingStores.find({"name" : {$regex: req.params.searchTerm} },function(err,post){
+        if(err)return next(err);
+        res.json(post);
+    })
+})

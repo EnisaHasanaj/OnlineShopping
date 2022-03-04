@@ -132,6 +132,8 @@ button {
 
 button:hover {
 	cursor: pointer;
+  color: white;
+  position: absolute;
 }
 
 iframe {

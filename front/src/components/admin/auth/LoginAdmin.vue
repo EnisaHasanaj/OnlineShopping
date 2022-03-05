@@ -46,12 +46,12 @@
           </div>
 
           <div class="container-login100-form-btn">
-            <button class="login" type="submit">
+            <button class="login100-form-btn" type="submit">
               Login
             </button>
           </div>
 
-          <div class="text-center">
+          <div class="text-center p-t-90">
             <a class="txt1" href="register">
               Don't have an account!
             </a>

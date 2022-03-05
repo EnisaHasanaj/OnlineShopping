@@ -5,8 +5,12 @@ const cors= require('cors');
 const mongoose = require('mongoose');
 const config = require('./db');
 const gamingstores = require('./routes/gamingstores');
+const usersRoute = require('./routes/usersRoute');
 // const users = require('./routes/userregister');
 // const usersl = require('./routes/userlogin');
+
+// require signInWithEmailAndPassword  from "firebase/auth";
+
 
 
 mongoose.Promise=global.Promise;
@@ -16,6 +20,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/gamingstores', gamingstores)
+app.use('/users', usersRoute)
 // app.use('/register', users)
 // app.use('/login', usersl)
 var bcrypt=require('bcrypt');
@@ -27,10 +32,12 @@ app.post('/register',(req,res,next)=>{
     const newUser=new User({
       email:req.body.email,
       username:req.body.username,
-      password:bcrypt.hashSync(req.body.password,10)    
+      password:bcrypt.hashSync(req.body.password,10),
+      role: req.body.role
     })
      newUser.save(err =>{
          if(err){
+
              return res.status(400).json({
                  title:'error',
                  error:'Email In Use'

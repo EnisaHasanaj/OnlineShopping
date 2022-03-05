@@ -62,6 +62,8 @@
 }
 .tbody-table button {
   width: auto;
+  height: 40px;
+  padding: 0px 10px;
   border: 1px solid red;
   margin-left: 10px;
 

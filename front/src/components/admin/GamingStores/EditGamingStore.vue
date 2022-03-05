@@ -77,6 +77,24 @@
         </v-btn>
         <!-- <v-btn color="error" class="mr-4" @click="reset"> Reseto Formen </v-btn> -->
       </v-form>
+
+      <table>
+        <thead>
+        <tr>
+          <th class="text-left">Name</th>
+          <th class="text-left">Price</th>
+          <th class="text-left">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="res in this.gamingStore.products" :key="res._id" class="tbody-table">
+          <td>{{ res.name }}</td>
+          <td>{{ res.price }}</td>
+          <td>{{ res.description }}</td>
+
+        </tr>
+        </tbody>
+      </table>
     </div>
   </v-app>
 </template>
@@ -88,7 +106,7 @@ export default {
   data() {
     return {
       image: null,
-      gamingStore: {location : [{city: "Istog", street: "Rruga"}]},
+      gamingStore: {products: [], location : [{city: "Istog", street: "Rruga"}]},
       valid: true,
       name: "",
       nameRules: [
@@ -114,7 +132,6 @@ export default {
     axios
       .get(`http://localhost:4000/gamingstores/` + this.$route.params.id)
       .then((res) => {
-        console.log(res.data);
         this.gamingStore = res.data;
       })
       .catch();
@@ -133,15 +150,6 @@ export default {
       });
     },
     onSubmit(evt) {
-      // let gamingStore = {
-      //   "name": this.gamingStore.name,
-      //   "description": this.gamingStore.description,
-      //   "location_city": this.gamingStore.location[0].city,
-      //   "location_street": this.gamingStore.location[0].street,
-      //   "telephone": this.gamingStore.telephone,
-      //   "hours_from":  this.gamingStore.hours[0].from,
-      //   "hours_to" : this.gamingStore.hours[0].to
-      // }
 
        var formData = new FormData();
       formData.append("name", this.gamingStore.name);
@@ -175,7 +183,7 @@ export default {
           }
         )
         .then((response) => {
-          // console.log(response)
+          console.log(response)
 
           this.$router.push({
             name: "Admin",

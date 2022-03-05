@@ -1,4 +1,5 @@
 var GamingStores = require('../models/GamingStores');
+var Product = require('../models/Product');
 var express=require('express');
 var mongoose=require('mongoose');
 const multer = require('multer');
@@ -44,6 +45,22 @@ router.get('/search/:searchTerm',function(req,res,next){
         if(err)return next(err);
         res.json(post);
     })
+})
+
+router.post('/:id/product', function(req,res,next){
+    GamingStores.findById(req.params.id,function(err,gamingStore){
+        if(err)return next(err);
+
+
+        Product.create(req.body,function(err,product){
+            if(err)return next(err);
+            gamingStore.products.push(product);
+            GamingStores.updateOne(gamingStore,function(err,post){
+                if(err)return next(err);
+                res.json(post);
+            })
+        })
+    });
 })
 
 router.post('/',upload.single('image'), function(req,res,next){

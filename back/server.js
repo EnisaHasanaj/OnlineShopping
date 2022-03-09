@@ -6,10 +6,7 @@ const mongoose = require('mongoose');
 const config = require('./db');
 const gamingstores = require('./routes/gamingstores');
 const usersRoute = require('./routes/usersRoute');
-// const users = require('./routes/userregister');
-// const usersl = require('./routes/userlogin');
 
-// require signInWithEmailAndPassword  from "firebase/auth";
 
 
 
@@ -21,8 +18,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/gamingstores', gamingstores)
 app.use('/users', usersRoute)
-// app.use('/register', users)
-// app.use('/login', usersl)
 var bcrypt=require('bcrypt');
 var jwt = require('jsonwebtoken');
 var port = process.env.PORT || 4000;

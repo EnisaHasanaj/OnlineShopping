@@ -96,7 +96,6 @@ router.post('/',upload.single('image'), function(req,res,next){
 })
 router.put('/:id', upload.single('image'), function(req,res,next){
 
-    // Deleting old image  // IMPORTANT
     deleteImageGamingStore(req.params.id);
 
     let gamingStores = {

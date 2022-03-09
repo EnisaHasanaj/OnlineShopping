@@ -1,7 +1,6 @@
 var User = require('../models/User');
-// var Product = require('../models/Product');
 var express=require('express');
-var mongoose=require('mongoose');
+// var mongoose=require('mongoose');
 const multer = require('multer');
 const fs = require('fs');
 var router=express.Router();

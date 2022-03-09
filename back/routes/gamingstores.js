@@ -96,6 +96,8 @@ router.post('/',upload.single('image'), function(req,res,next){
 })
 router.put('/:id', upload.single('image'), function(req,res,next){
 
+
+    // Deleting old image  // IMPORTANT
     deleteImageGamingStore(req.params.id);
 
     let gamingStores = {
@@ -143,7 +145,6 @@ var deleteImageGamingStore = function(id) {
     GamingStores.findById(id,function(err,post){
         if(err)return next(err);
         console.log(post);
-        // fs.unlinkSync("C:\\Users\\Asdren\\Desktop\\foodpicker_app\\front\\public\\" + "\\" + post.images[0].url);
         fs.unlinkSync("/Users/erakastrati/Desktop/foodpicker_app-development/front/public/" + post.images[0].url);
     })
 }

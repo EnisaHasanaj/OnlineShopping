@@ -1,5 +1,5 @@
-# foodpicker_app
-Vuejs and Nodejs foodpicker web app.
+# gamin_store_app
+Vuejs and ExpressJs foodpicker web app.
 
 
 <!-- front - npm run serve

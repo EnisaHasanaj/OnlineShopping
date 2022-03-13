@@ -1,5 +1,5 @@
 # gaming_store_app
-Vuejs and ExpressJs foodpicker web app.
+Vuejs and ExpressJs Gaming store web app.
 
 
 <!-- front - npm run serve

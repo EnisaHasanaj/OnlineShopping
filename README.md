@@ -1,4 +1,4 @@
-# gamin_store_app
+# gaming_store_app
 Vuejs and ExpressJs foodpicker web app.
 
 

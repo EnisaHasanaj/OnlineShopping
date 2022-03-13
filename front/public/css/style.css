@@ -114,6 +114,7 @@ hr {
   font-size: 22px;
   font-weight: bold;
   letter-spacing: 2px;
+  text-align: left;
 }
 .navbar-default .navbar-nav li a {
   font-size: 12px;
@@ -366,7 +367,7 @@ footer .fa {
 
 .fa-search{
   position: absolute;
-  top: 50%;
+  top: 73%;
   transform: translateY(-50%);
   right: 25px;
   color: #fff;

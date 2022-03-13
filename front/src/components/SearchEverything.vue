@@ -10,10 +10,7 @@
       </div>
     </div>
     <div class="wrapper">
-      <div class="search_box">
-        <input type="text" placeholder="Search any gaming store...">
-        <i class="fas fa-search"></i>
-      </div>
+      <h3 class="">"Failure doesn’t mean game over, <br> It means try again with experience"</h3>
     </div>
   </section>
 </template>
